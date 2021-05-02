@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <label>ToggleButton: </label>
+  <toggle-button
+      id="toggle"
+      :initial-value="false"
+      @onChange="onToggleButtonChanged($event)"
+  />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import ToggleButton from './components/ToggleButton.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      ToggleButton
+    },
+
+    methods: {
+      onToggleButtonChanged(event) {
+        console.log(`Received onChange event from child component: ${event}`);
+      }
+    },
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
